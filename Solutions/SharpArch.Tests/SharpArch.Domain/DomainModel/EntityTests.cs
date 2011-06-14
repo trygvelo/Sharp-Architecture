@@ -1,5 +1,7 @@
 namespace Tests.SharpArch.Domain.DomainModel
 {
+    using System;
+
     using global::SharpArch.Domain.DomainModel;
 
     using NUnit.Framework;
@@ -98,8 +100,8 @@ namespace Tests.SharpArch.Domain.DomainModel
             Assert.That(object1, Is.Not.EqualTo(null));
             Assert.That(object1, Is.Not.EqualTo(object2));
 
-            EntityIdSetter.SetIdOf(object1, 10);
-            EntityIdSetter.SetIdOf(object2, 10);
+            EntityIdSetter.SetIdOf(object1, new Guid("79E9F560-FD70-4807-BEED-50A87AA911B1"));
+            EntityIdSetter.SetIdOf(object2, new Guid("79E9F560-FD70-4807-BEED-50A87AA911B1"));
 
             // Even though the "business value signatures" are different, the persistent Ids 
             // were the same.  Call me crazy, but I put that much trust into persisted Ids.
@@ -199,8 +201,8 @@ namespace Tests.SharpArch.Domain.DomainModel
             var object1Type = new Object1();
             var object2Type = new Object2();
 
-            EntityIdSetter.SetIdOf(object1Type, 1);
-            EntityIdSetter.SetIdOf(object2Type, 1);
+            EntityIdSetter.SetIdOf(object1Type, new Guid("79E9F560-FD70-4807-BEED-50A87AA911B1"));
+            EntityIdSetter.SetIdOf(object2Type, new Guid("79E9F560-FD70-4807-BEED-50A87AA911B1"));
 
             Assert.That(object1Type, Is.Not.EqualTo(object2Type));
         }

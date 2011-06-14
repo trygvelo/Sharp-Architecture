@@ -18,7 +18,6 @@ namespace SharpArch.Specifications.SharpArch.Domain.DomainModel
 
     using Machine.Specifications;
 
-    using Tests.SharpArch.Domain;
 
     public class entity_with_type_id_specs
     {

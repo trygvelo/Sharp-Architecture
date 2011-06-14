@@ -1,5 +1,6 @@
 namespace Tests.SharpArch.Domain.DomainModel
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
@@ -17,20 +18,20 @@ namespace Tests.SharpArch.Domain.DomainModel
             IList<ConcreteEntityWithDomainSignatureProperties> objects1 =
                 new List<ConcreteEntityWithDomainSignatureProperties>();
             var object1 = new ConcreteEntityWithDomainSignatureProperties { Name = "Billy McCafferty", };
-            EntityIdSetter.SetIdOf(object1, 2);
+            EntityIdSetter.SetIdOf(object1, new Guid("79E9F560-FD70-4807-BEED-50A87AA911B1"));
             objects1.Add(object1);
 
             IList<ConcreteEntityWithDomainSignatureProperties> objects2 =
                 new List<ConcreteEntityWithDomainSignatureProperties>();
             var object2 = new ConcreteEntityWithDomainSignatureProperties { Name = "Jimi Hendrix", };
-            EntityIdSetter.SetIdOf(object2, 1);
+            EntityIdSetter.SetIdOf(object2, new Guid("52335ABA-2D8B-4892-A8B7-86B817AAC607"));
             objects2.Add(object2);
             var object3 = new ConcreteEntityWithDomainSignatureProperties
                 {
                     Name =
                         "Doesn't Matter since the Id will match and the presedence of the domain signature will go overridden", 
                 };
-            EntityIdSetter.SetIdOf(object3, 2);
+            EntityIdSetter.SetIdOf(object3, new Guid("52335ABA-2D8B-4892-A8B7-86B817AAC607"));
             objects2.Add(object3);
 
             Assert.That(
@@ -72,8 +73,8 @@ namespace Tests.SharpArch.Domain.DomainModel
             object2.Name = "Mismatch";
             Assert.That(comparer.Equals(object1, object2), Is.False);
 
-            EntityIdSetter.SetIdOf(object1, 1);
-            EntityIdSetter.SetIdOf(object2, 1);
+            EntityIdSetter.SetIdOf(object1, new Guid("79E9F560-FD70-4807-BEED-50A87AA911B1"));
+            EntityIdSetter.SetIdOf(object2, new Guid("79E9F560-FD70-4807-BEED-50A87AA911B1"));
             Assert.That(comparer.Equals(object1, object2));
         }
 
@@ -86,8 +87,8 @@ namespace Tests.SharpArch.Domain.DomainModel
             var object2 = new ConcreteEntityWithNoDomainSignatureProperties { Name = "asdf" };
             Assert.That(comparer.Equals(object1, object2), Is.False);
 
-            EntityIdSetter.SetIdOf(object1, 1);
-            EntityIdSetter.SetIdOf(object2, 1);
+            EntityIdSetter.SetIdOf(object1, new Guid("79E9F560-FD70-4807-BEED-50A87AA911B1"));
+            EntityIdSetter.SetIdOf(object2, new Guid("79E9F560-FD70-4807-BEED-50A87AA911B1"));
             Assert.That(comparer.Equals(object1, object2));
         }
 

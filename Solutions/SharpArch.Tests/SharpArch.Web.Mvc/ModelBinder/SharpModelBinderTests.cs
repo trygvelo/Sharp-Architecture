@@ -253,7 +253,7 @@ namespace Tests.SharpArch.Web.Mvc.ModelBinder
                 this.Reports = new List<Employee>();
             }
 
-            public Employee(int id)
+            public Employee(Guid id)
             {
                 this.Id = id;
             }

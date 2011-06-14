@@ -12,7 +12,7 @@
     ///     than int, such as string, then use <see cref = "EntityWithTypedId{IdT}" /> instead.
     /// </summary>
     [Serializable]
-    public abstract class Entity : EntityWithTypedId<int>
+    public abstract class Entity : EntityWithTypedId<Guid>
     {
     }
 }
