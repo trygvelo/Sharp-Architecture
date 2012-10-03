@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
 using System.Xml.Serialization;
 
 namespace SharpArch.Core.DomainModel
@@ -17,7 +16,6 @@ namespace SharpArch.Core.DomainModel
     /// an in depth and conclusive resolution.
     /// </summary>
     [Serializable]
-    [JsonObject(MemberSerialization.OptIn)]
     public abstract class BaseObject
     {
         public override bool Equals(object obj) {

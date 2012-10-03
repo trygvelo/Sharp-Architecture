@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
 using System.Diagnostics;
@@ -50,7 +49,6 @@ namespace SharpArch.Core.DomainModel
         /// See the FAQ within the documentation if you'd like to have the Id XML serialized.
         /// </summary>
         [XmlIgnore]
-        [JsonProperty]
         public virtual IdT Id { get; protected set; }
 
         /// <summary>
