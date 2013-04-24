@@ -28,8 +28,8 @@ namespace Tests.SharpArch.Data
         public void CanInitializeWithPersistenceConfigurerAndConfigFile() {
             var configFile = "sqlite-nhibernate-config.xml";
             var persistenceConfigurer = SQLiteConfiguration.Standard
-                .ConnectionString(c => c.Is("Data Source=:memory:;Version=3;New=True;"))
-                .ProxyFactoryFactory("NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle");
+                .ConnectionString(c => c.Is("Data Source=:memory:;Version=3;New=True;"));
+                //.ProxyFactoryFactory("NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle");
 
             var mappingAssemblies = new string[] { };
 
@@ -43,8 +43,8 @@ namespace Tests.SharpArch.Data
         [Test]
         public void CanInitializeWithPersistenceConfigurerAndNoConfigFile() {
             var persistenceConfigurer = SQLiteConfiguration.Standard
-                .ConnectionString(c => c.Is("Data Source=:memory:;Version=3;New=True;"))
-                .ProxyFactoryFactory("NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle");
+                .ConnectionString(c => c.Is("Data Source=:memory:;Version=3;New=True;"));
+                //.ProxyFactoryFactory("NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle");
 
             var mappingAssemblies = new string[] { };
 
