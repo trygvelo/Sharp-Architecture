@@ -10,7 +10,7 @@ using Moq;
 using NUnit.Framework;
 using SharpArch.Core.CommonValidator;
 using SharpArch.Core.DomainModel;
-using SharpArch.Core.NHibernateValidator.CommonValidatorAdapter;
+//using SharpArch.Core.NHibernateValidator.CommonValidatorAdapter;
 using SharpArch.Core.PersistenceSupport;
 using SharpArch.Web.ModelBinder;
 
@@ -249,11 +249,11 @@ namespace Tests.SharpArch.Web.ModelBinder
             mockRepository.Setup(r => r.Get(It.IsAny<int>())).Returns((int newId) =>new Employee(newId));
 
             windsorContainer.Register(Component.For<IRepositoryWithTypedId<Employee, int>>().Instance(mockRepository.Object));
-            windsorContainer.Register(
-                Component
-                    .For(typeof(IValidator))
-                    .ImplementedBy(typeof(Validator))
-                    .Named("validator"));
+            //windsorContainer.Register(
+            //    Component
+            //        .For(typeof(IValidator))
+            //        .ImplementedBy(typeof(Validator))
+            //        .Named("validator"));
 
 
             ServiceLocator.SetLocatorProvider(() => new WindsorServiceLocator(windsorContainer));

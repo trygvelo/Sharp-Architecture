@@ -89,10 +89,6 @@
     <Reference Include="NHibernate.ByteCode.Castle, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\..\..\bin\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate.Validator, Version=1.3.0.2001, Culture=neutral, PublicKeyToken=70154e18752585bd, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\NHibernate.Validator.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework, Version=2.4.7.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\bin\nunit.framework.dll</HintPath>
@@ -121,24 +117,16 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SharpArch.Core.NHibernateValidator\CommonValidatorAdapter\ValidatorTests.cs" />
-    <Compile Include="SharpArch.Core.NHibernateValidator\ValidatorProvider\NHibernateValidatorProviderTests.cs" />
     <Compile Include="SharpArch.Core\DesignByContractTests.cs" />
     <Compile Include="SharpArch.Core\DomainModel\BaseObjectEqualityComparerTests.cs" />
     <Compile Include="SharpArch.Core\DomainModel\EntityTests.cs" />
     <Compile Include="SharpArch.Core\DomainModel\ValueObjectTests.cs" />
-    <Compile Include="SharpArch.Core\CommonValidator\NHibernateValidator\HasUniqueEntitySignatureValidatorTests.cs" />
     <Compile Include="SharpArch.Core\SafeServiceLocatorTests.cs" />
     <Compile Include="SharpArch.Data\NHibernateSessionTests.cs" />
-    <Compile Include="SharpArch.Web\CommonValidator\MvcValidationAdapterTests.cs" />
     <Compile Include="SharpArch.Web\JsonNet\JsonNetResultTests.cs" />
     <Compile Include="SharpArch.Web\ModelBinder\SharpModelBinderTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharpArch.Core.NHibernateValidator\SharpArch.Core.NHibernateValidator.csproj">
-      <Project>{37E5BBAC-99FB-44D0-AF49-CFA95332DCC1}</Project>
-      <Name>SharpArch.Core.NHibernateValidator</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SharpArch.Core\SharpArch.Core.csproj">
       <Project>{E12E99BB-8732-441F-B3A6-861F0CE23D3D}</Project>
       <Name>SharpArch.Core</Name>
@@ -180,6 +168,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
