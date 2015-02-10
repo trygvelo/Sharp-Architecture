@@ -26,7 +26,7 @@
 
 	<!-- Assemblies -->
 	<property name="main.assembly.name" value="${build.dir}\SharpArch.dll" />
-	<property name="key.file" value="${solution.dir}\${project::get-name()}.Core\${project::get-name()}.snk" />
+	<!--<property name="key.file" value="${solution.dir}\${project::get-name()}.Core\${project::get-name()}.snk" />-->
 	<property name="temp.assembly.name" value="${build.dir}\SharpArch.Core.dll" />
 	<property name="test.assembly" value="${project::get-name()}.Tests.dll" />	
 
@@ -209,11 +209,16 @@
 			</code>
 		</script>		
 		
-		<ilmerge outputfile="${main.assembly.name}"
+		<!--<ilmerge outputfile="${main.assembly.name}"
 			primary="${temp.assembly.name}"
 			program="${ilmerge.dir}\ilmerge.exe"
 			logfile="${log.file}"
 			keyfile="${key.file}"
+			internalize="false">-->
+		<ilmerge outputfile="${main.assembly.name}"
+			primary="${temp.assembly.name}"
+			program="${ilmerge.dir}\ilmerge.exe"
+			logfile="${log.file}"
 			internalize="false">
 			<assemblies>
 				<include name="${build.dir}\SharpArch.Core.NHibernateValidator.dll" />
